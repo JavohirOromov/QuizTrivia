@@ -34,4 +34,4 @@ Mening Bluck Shuffle 15 dasturim
 1.Repozitoriyni klonlash:
 
 ```bash
-https://github.com/JavohirOromov/BlockShuffle15.git
+https://github.com/JavohirOromov/QuizTrivia.git
