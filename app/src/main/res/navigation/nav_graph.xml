@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.quizmvp.screen.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.quizmvp.screen.test.TestFragment"
+        android:label="TestFragment">
+        <action
+            android:id="@+id/action_testFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/testFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_testFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/testFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.quizmvp.screen.result.ResultFragment"
+        android:label="ResultFragment">
+        <action
+            android:id="@+id/action_resultFragment_to_testFragment"
+            app:destination="@id/testFragment"
+            app:popUpTo="@id/resultFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_resultFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/resultFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.quizmvp.screen.menu.MenuFragment"
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+
+</navigation>
