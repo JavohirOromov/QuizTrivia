@@ -209,6 +209,19 @@ class TestFragment: Fragment(R.layout.fragment_test), TestContract.View {
 
         startActivity(Intent.createChooser(intent, "Savolni ulashing"))
     }
+
+    override fun optionClickableFalse() {
+        for (i in 0 until 4){
+            lines[i].isClickable = false
+        }
+    }
+
+    override fun optionClickableTrue() {
+        for (i in 0 until 4){
+            lines[i].isClickable = true
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.stopTimer()

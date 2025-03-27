@@ -48,6 +48,7 @@ class TestPresenter(private val view: TestContract.View): TestContract.Presenter
         timer?.cancel()
     }
     override fun selectUserAnswer(pos: Int, str: String) {
+        view.optionClickableFalse()
         stopTimer()
         view.nextButtonEnabled()
         userAnswer = str
@@ -80,6 +81,7 @@ class TestPresenter(private val view: TestContract.View): TestContract.Presenter
             view.showTestAnimation(data[currentIndex])
             view.setScore(currentIndex)
             view.clearOldState()
+            view.optionClickableTrue()
             userAnswer = ""
             startTimer()
             val progress = (correctCount * 100) / totalQuestionCount

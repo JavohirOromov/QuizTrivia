@@ -25,6 +25,9 @@ interface TestContract {
         fun showTimeOutDialog()
         fun openMenuScreen()
         fun shareQuestion(question: String, options: List<CharSequence>)
+        fun optionClickableFalse()
+        fun optionClickableTrue()
+
     }
     interface Presenter{
         fun selectUserAnswer(pos: Int, str: String)

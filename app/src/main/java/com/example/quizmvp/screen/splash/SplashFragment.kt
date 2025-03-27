@@ -8,6 +8,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.quizmvp.R
 import com.example.quizmvp.databinding.FragmentSplashBinding
 
+
 /**
  * Creator: Javohir Oromov
  * Project: QuizMVP
