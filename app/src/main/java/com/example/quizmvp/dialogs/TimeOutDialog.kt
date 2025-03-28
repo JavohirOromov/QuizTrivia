@@ -22,6 +22,7 @@ class TimeOutDialog(context: Context): AlertDialog(context) {
     init {
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         window?.attributes?.windowAnimations = R.style.CustomDialogAnim
+        setCancelable(false)
         setView(binding.root)
 
         binding.btn.setOnClickListener {
