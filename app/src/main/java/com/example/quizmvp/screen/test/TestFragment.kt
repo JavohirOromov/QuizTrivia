@@ -1,4 +1,5 @@
 package com.example.quizmvp.screen.test
+import QuitDialog
 import TimeOutDialog
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -8,6 +9,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -30,6 +32,7 @@ class TestFragment: Fragment(R.layout.fragment_test), TestContract.View {
     private lateinit var buttonNext: AppCompatButton
     private val args: TestFragmentArgs by navArgs()
     private var dialogTime: TimeOutDialog? = null
+    private var quitDialog: QuitDialog? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,9 +41,18 @@ class TestFragment: Fragment(R.layout.fragment_test), TestContract.View {
         loadViews()
         addClickEvents()
         presenter.setExtraValue(id)
+        back()
+    }
+    private fun back(){
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigate(TestFragmentDirections.actionTestFragmentToMenuFragment())
+            }
+        })
     }
     private fun loadViews() {
         dialogTime = TimeOutDialog(requireContext())
+        quitDialog = QuitDialog(requireContext())
         questionText = binding.textQuestion
         buttonNext = binding.btnNext
         lines = listOf(binding.variant1, binding.variant2, binding.variant3, binding.variant4)
@@ -63,6 +75,12 @@ class TestFragment: Fragment(R.layout.fragment_test), TestContract.View {
             val questions = questionText.text
             val options = listOf(binding.variant1.text,binding.variant2.text,binding.variant3.text,binding.variant4.text)
             presenter.clickShareBtn(questions.toString(),options)
+        }
+        binding.back.setOnClickListener {
+            presenter.clickBackBtn()
+        }
+        quitDialog?.setBtnClickListener {
+            presenter.clickQuitDialogBtn()
         }
     }
 
@@ -220,6 +238,10 @@ class TestFragment: Fragment(R.layout.fragment_test), TestContract.View {
         for (i in 0 until 4){
             lines[i].isClickable = true
         }
+    }
+
+    override fun showQuitDialog() {
+        quitDialog?.show()
     }
 
     override fun onDestroyView() {

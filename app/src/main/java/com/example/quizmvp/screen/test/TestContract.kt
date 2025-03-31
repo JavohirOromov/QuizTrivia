@@ -27,7 +27,7 @@ interface TestContract {
         fun shareQuestion(question: String, options: List<CharSequence>)
         fun optionClickableFalse()
         fun optionClickableTrue()
-
+        fun showQuitDialog()
     }
     interface Presenter{
         fun selectUserAnswer(pos: Int, str: String)
@@ -36,5 +36,7 @@ interface TestContract {
         fun stopTimer()
         fun clickDialogBtn()
         fun clickShareBtn(question: String, options: List<CharSequence>)
+        fun clickBackBtn()
+        fun clickQuitDialogBtn()
     }
 }

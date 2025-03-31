@@ -106,4 +106,12 @@ class TestPresenter(private val view: TestContract.View): TestContract.Presenter
     override fun clickShareBtn(question: String, options: List<CharSequence>) {
         view.shareQuestion(question,options)
     }
+
+    override fun clickBackBtn() {
+        view.showQuitDialog()
+    }
+
+    override fun clickQuitDialogBtn() {
+        view.openMenuScreen()
+    }
 }

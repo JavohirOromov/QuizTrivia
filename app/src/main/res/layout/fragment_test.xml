@@ -7,15 +7,30 @@
     android:padding="12dp"
     android:orientation="vertical"
     android:background="@drawable/quiz_bg">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/back"
+        app:tint="@color/white"
+        app:layout_constraintTop_toTopOf="@id/score"
+        app:layout_constraintBottom_toBottomOf="@id/score"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="12dp"
+        android:background="?selectableItemBackgroundBorderless"
+        />
+
     <ImageView
         android:id="@+id/watch"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/stopwatch"
-        app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/card"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="48dp"
-        android:layout_marginStart="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/liner"
+        app:layout_constraintHorizontal_bias="0.45"
         />
 
     <TextView
@@ -39,7 +54,7 @@
         android:src="@drawable/question"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         />
 
@@ -91,7 +106,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_bias="0.3"
         android:orientation="vertical"
         >
         <androidx.appcompat.widget.AppCompatButton

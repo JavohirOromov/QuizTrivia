@@ -27,6 +27,9 @@ class MenuFragment: Fragment(R.layout.fragment_menu) {
             val actions = MenuFragmentDirections.actionMenuFragmentToTestFragment(it)
             findNavController().navigate(actions)
         }
+        binding.info.setOnClickListener {
+            findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToInfoFragment())
+        }
     }
     private fun initAdapter(){
         binding.categoryList.adapter = adapter
